@@ -9,7 +9,7 @@ var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/date', function(req, res, next){
+app.get('/', function(req, res){
   console.log('URL works');
 });
 
