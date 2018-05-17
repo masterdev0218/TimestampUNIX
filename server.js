@@ -3,7 +3,12 @@
 
 // init project
 var express = require('express');
-var app = express();
+var bodyParser = require('body-parser');
+var cors = require('cors');
+
+var app = module.exports = express();
+app.user(bodyParser.json());
+app.use(cors());
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
