@@ -9,8 +9,8 @@ var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('date', function(req, res, next){
-  
+app.get('/date', function(req, res, next){
+  console.log('URL works');
 });
 
 // listen for requests
