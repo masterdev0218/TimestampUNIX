@@ -1,27 +1,15 @@
-// server.js
-// where your node app starts
 
 // init project
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
+//create instance of express. Instantiate bodyParser and cors
 var app = module.exports = express();
-app.user(bodyParser.json());
+app.use(bodyParser.json());
 app.use(cors());
 
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
-
-// http://expressjs.com/en/starter/static-files.html
-app.use(express.static('public'));
-
-// http://expressjs.com/en/starter/basic-routing.html
-app.get("/", function (request, response) {
-  response.sendFile(__dirname + '/views/index.html');
-});
-
-// listen for requests :)
-var listener = app.listen(process.env.PORT, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+// listen for requests
+app.listen(process.env.PORT || 3000, function () {
+  console.log('Your app is listening');
 });
