@@ -10,6 +10,6 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // listen for requests
-app.listen(process.env.PORT || 3000, function () {
+app.listen(3000, function () {
   console.log('Your app is listening');
 });
