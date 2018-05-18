@@ -13,7 +13,9 @@ app.use(cors());
 app.get('/date/:dateValue', function(req,res,next){
   var dateValue = req.params.dateValue;
   
+  var date
   
+  res.json({unix: dateValue});
   
 });
 
