@@ -9,11 +9,15 @@ var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-app.get('/', function(req, res){
-  console.log('URL works');
+//GET call for data parameters
+app.get('/date/:dateValue', function(req,res,next){
+  var dateValue = req.params.dateValue;
+  
+  
+  
 });
 
 // listen for requests
-app.listen(3001, function () {
+app.listen(3010, function () {
   console.log('Your app is listening');
 });
