@@ -16,15 +16,27 @@ app.get('/date/:dateValue', function(req,res,next){
   
   //Date formatting options
   var optionsDateFormatting = {
-      year: 'numeric',
-      month: 'long',
+    year: 'numeric',
+    month: 'long',
     day: 'numeric'
   };
   
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
+    
+    if(naturalDate == "Invalid Date"){
+      naturalDate = null;
+      unixDate = null;
+    }
+    else{
+      naturalDate = naturalDate.toLocaleDateString("en-us", optionsDateFormatting);    
+      var unixDate = new Date(dateValue).getTime()/1000;
+    }
+  }
+  else{
+    var unixDate = dateValue;
+    var naturalDate = new Date(dateValue*1000);
     naturalDate = naturalDate.toLocaleDateString("en-us", optionsDateFormatting);
-    var unixDAte = new Date(dateValue).getTime()/1000;
   }
   
   res.json({unix: dateValue, natural: naturalDate}); 
