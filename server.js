@@ -14,6 +14,6 @@ app.get('/', function(req, res){
 });
 
 // listen for requests
-app.listen(3001, function () {
+app.listen(3000, function () {
   console.log('Your app is listening');
 });
