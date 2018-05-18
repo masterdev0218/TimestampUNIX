@@ -15,7 +15,7 @@ app.get('/date/:dateValue', function(req,res,next){
   var dateValue = req.params.dateValue;
   
   //Date formatting options
-  var optionsDateFormatting = {
+  var format = {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -29,14 +29,14 @@ app.get('/date/:dateValue', function(req,res,next){
       unixDate = null;
     }
     else{
-      naturalDate = naturalDate.toLocaleDateString("en-us", optionsDateFormatting);    
+      naturalDate = naturalDate.toLocaleDateString("en-us", format);    
       var unixDate = new Date(dateValue).getTime()/1000;
     }
   }
   else{
     var unixDate = dateValue;
     var naturalDate = new Date(dateValue*1000);
-    naturalDate = naturalDate.toLocaleDateString("en-us", optionsDateFormatting);
+    naturalDate = naturalDate.toLocaleDateString("en-us", format);
   }
   
   res.json({unix: dateValue, natural: naturalDate}); 
