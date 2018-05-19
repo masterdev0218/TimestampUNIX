@@ -11,7 +11,8 @@ var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-//GET call
+//when a GET request is made to the homepage, respond with the index.html file, 
+//If error, log an error, else log 'sent'
 app.get('/', (req,res) => {
   var fileName = path.join(__dirname, 'index.html');
   res.sendFile(fileName, (err) => {
@@ -25,22 +26,23 @@ app.get('/', (req,res) => {
   });
 });
 
-//GET call for data parameters
+//GET call for 'dateStr' data parameters
 app.get('/:dateStr', (req,res) => {
   //gets unix code user input to be formatted
   var dateValue = req.params.dateStr;
   
-  //Date formatting options
+  //Date format defined as a variable
   var format = {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   };
   
+  //check if data is not a number
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
     
-    if(naturalDate == "Invalid Date"){app
+    if(naturalDate == "Invalid Date"){
       naturalDate = null;
       unixDate = null;
     }
