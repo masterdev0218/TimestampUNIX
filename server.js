@@ -48,18 +48,20 @@ app.get('/:dateStr', (req,res) => {
       unixDate = null;
     }
     
-    // show date in UK format i.e. day, month, year, or in unix format using the JS getTime method
+    // show date in UK format i.e. day, month, year, or in Unix format using the JS getTime method
     else{
       naturalDate = naturalDate.toLocaleDateString("en-us", format);    
       var unixDate = new Date(dateValue).getTime()/1000;
     }
   }
+  //if it IS a number then it must be Unix format so derive natural date from that
   else{
     var unixDate = dateValue;
     var naturalDate = new Date(dateValue*1000);
     naturalDate = naturalDate.toLocaleDateString("en-GB", format);
   }
   
+  //output the Unix and natural date in JSON. 
   res.json({unix: dateValue, natural: naturalDate}); 
 });
 
