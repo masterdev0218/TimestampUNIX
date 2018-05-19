@@ -24,7 +24,7 @@ app.get('/date/:dateValue', function(req,res,next){
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
     
-    if(naturalDate == "Invalid Date"){
+    if(naturalDate == "Invalid Date"){app
       naturalDate = null;
       unixDate = null;
     }

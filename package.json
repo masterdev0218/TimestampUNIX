@@ -1,10 +1,11 @@
 {
-  "name": "timestampUNIX",
+  "name": "timestamp-microservice-ajb",
   "version": "0.0.1",
   "description": "Convert UNIX timestamp to natural date format.",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
-    "start": "node server.js"
+    "test": "test1",
+    "start": "node app.js"
   },
   "dependencies": {
     "express": "^4.16.3",
