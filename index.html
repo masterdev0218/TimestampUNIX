@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1 class="header">API Basejump: Timestamp Microservice</h1>
-    <p>ajb |
+    <p>Andrew J Bateman |
         <a href="https://github.com/AndrewJBateman/TimestampUNIX.git" target="_blank">GitHub Repository</a></p>
     <blockquote>User Stories:
         <ol>
@@ -19,11 +19,13 @@
             <li>If it does not contain a date or Unix timestamp, it returns <code>null</code> for those properties.</li>
         </ol>
     </blockquote>
+    <br>
     <h2>Example usage:</h2>
-    <code>https://murmuring-cliffs-19880.herokuapp.com/December%2020%202015</code><br>
-    <code></code>
+    <code>https://murmuring-cliffs-19880.herokuapp.com/19%20may%202018</code>
+    <br>
+    <code>https://murmuring-cliffs-19880.herokuapp.com/1526688000</code>
     <h2>Example output:</h2>
-    <code>{ "unix": 1450137600, "natural": "December 15, 2015" }</code><br>
+    <code>{"unix":1526688000,"natural":"May 19, 2018"}</code><br>
     <code>{ "unix": null, "natural": null }</code>
 </div>
 </body>
