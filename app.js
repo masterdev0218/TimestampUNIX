@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //GET call for data parameters
-app.get('/date/:dateValue', function(req,res,next){
+app.get('/', function(req,res,next){
   //gets unix code user input to be formatted
   var dateValue = req.params.dateValue;
   
