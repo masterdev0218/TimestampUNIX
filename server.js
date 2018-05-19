@@ -11,6 +11,12 @@ var app = module.exports = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+var port = process.env.PORT || 8080; //set port
+// listen for requests
+app.listen(port, () => {
+  console.log('Your app is listening on port ' + port);
+});
+
 //when a GET request is made to the homepage, respond with the index.html file, 
 //If error, log an error, else log 'sent'
 app.get('/', (req,res) => {
@@ -50,8 +56,9 @@ app.get('/:dateStr', (req,res) => {
     
     // show date in UK format i.e. day, month, year, or in Unix format using the JS getTime method
     else{
-      naturalDate = naturalDate.toLocaleDateString("en-GB", dateOptions);    
       var unixDate = new Date(dateValue).getTime()/1000;
+      nixDate = unixDate.format("X");
+      naturalDate = naturalDate.toLocaleDateString("en-GB", dateOptions);    
     }
   }
   //if it is a number then it must be Unix format so derive natural date from that
@@ -65,8 +72,4 @@ app.get('/:dateStr', (req,res) => {
   res.json({unix: unixDate, natural: naturalDate}); 
 });
 
-var port = process.env.PORT || 8080; //set port
-// listen for requests
-app.listen(port, () => {
-  console.log('Your app is listening on port ' + port);
-});
+
