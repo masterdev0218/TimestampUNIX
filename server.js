@@ -42,9 +42,8 @@ app.get('/date/:dateValue', function(req,res,next){
   res.json({unix: dateValue, natural: naturalDate}); 
 });
 
-
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080; //set port
 // listen for requests
 app.listen(port, function () {
-  console.log('Your app is listening');
+  console.log('Your app is listening on port ' + port);
 });
