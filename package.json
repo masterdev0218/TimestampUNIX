@@ -4,7 +4,6 @@
   "description": "Convert UNIX timestamp to natural date format.",
   "main": "app.js",
   "scripts": {
-    "test": "test1",
     "start": "node app.js"
   },
   "dependencies": {
