@@ -38,14 +38,17 @@ app.get('/:dateStr', (req,res) => {
     day: 'numeric'
   };
   
-  //check if data is not a number
+  //check if data is not a number then assume it is a date 
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
     
+    //if data is invalid log 'null'
     if(naturalDate == "Invalid Date"){
       naturalDate = null;
       unixDate = null;
     }
+    
+    // show date in UK format i.e. day, month, year, or in unix format using the JS getTime method
     else{
       naturalDate = naturalDate.toLocaleDateString("en-us", format);    
       var unixDate = new Date(dateValue).getTime()/1000;
@@ -54,7 +57,7 @@ app.get('/:dateStr', (req,res) => {
   else{
     var unixDate = dateValue;
     var naturalDate = new Date(dateValue*1000);
-    naturalDate = naturalDate.toLocaleDateString("en-us", format);
+    naturalDate = naturalDate.toLocaleDateString("en-GB", format);
   }
   
   res.json({unix: dateValue, natural: naturalDate}); 
