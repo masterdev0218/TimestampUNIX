@@ -1,10 +1,10 @@
 {
   "name": "timestamp-microservice-ajb",
-  "version": "0.0.1",
-  "description": "Convert UNIX timestamp to natural date format.",
-  "main": "app.js",
+  "version": "1.0.0",
+  "description": "Convert a string to Unix timestamp or natural language date.",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.16.3",
@@ -17,10 +17,5 @@
   "repository": {
     "url": "https://github.com/AndrewJBateman/TimestampUNIX.git"
   },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+  "license": "MIT"
 }
