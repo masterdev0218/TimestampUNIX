@@ -1,8 +1,8 @@
 
 // init project
-var express = require('express');
-var bodyParser = require('body-parser');
-var cors = require('cors');
+var express = require('express'); //a minimal and flexible node.js web application framework
+var bodyParser = require('body-parser'); //Parse incoming request bodies in a middleware before your handlers
+var cors = require('cors'); //Cross Origin Resource Sharing, allows use of REST API served from a different origin
 var path = require('path'); //utilities for working with file and directory paths
 var fs = require('fs'); //API for interacting with the file system
 
