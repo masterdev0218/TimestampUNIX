@@ -4,6 +4,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var path = require('path');
+var fs = require('fs');
 
 //create instance of express. Instantiate bodyParser and cors
 var app = module.exports = express();
@@ -24,9 +25,8 @@ app.get('/', function(req,res){
   });
 });
 
-
 //GET call for data parameters
-app.get('/', function(req,res,next){
+app.get('/:datestring', function(req,res){
   //gets unix code user input to be formatted
   var dateValue = req.params.datestring;
   
