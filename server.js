@@ -32,13 +32,13 @@ app.get('/:dateStr', (req,res) => {
   var dateValue = req.params.dateStr;
   
   //Date format defined as a variable - used as the option in the toLocaleDateString method
-  var dateptions = {
+  var dateOptions = {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   };
   
-  //check if data is not a number then assume it is a date 
+  //check if data passed in is not a number then assume it is a date 
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
     
@@ -50,7 +50,7 @@ app.get('/:dateStr', (req,res) => {
     
     // show date in UK format i.e. day, month, year, or in Unix format using the JS getTime method
     else{
-      naturalDate = naturalDate.toLocaleDateString("en-GB", options);    
+      naturalDate = naturalDate.toLocaleDateString("en-GB", dateOptions);    
       var unixDate = new Date(dateValue).getTime()/1000;
     }
   }
@@ -58,11 +58,11 @@ app.get('/:dateStr', (req,res) => {
   else{
     var unixDate = dateValue;
     var naturalDate = new Date(dateValue*1000);
-    naturalDate = naturalDate.toLocaleDateString("en-GB", options);
+    naturalDate = naturalDate.toLocaleDateString("en-GB", dateOptions);
   }
   
   //output the Unix and natural date in JSON. 
-  res.json({unix: dateValue, natural: naturalDate}); 
+  res.json({unix: unixDate, natural: naturalDate}); 
 });
 
 var port = process.env.PORT || 8080; //set port
