@@ -3,8 +3,8 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
-var path = require('path');
-var fs = require('fs');
+var path = require('path'); //utilities for working with file and directory paths
+var fs = require('fs'); //API for interacting with the file system
 
 //create instance of express. Instantiate bodyParser and cors
 var app = module.exports = express();
@@ -12,9 +12,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //GET call
-app.get('/', function(req,res){
+app.get('/', (req,res) => {
   var fileName = path.join(__dirname, 'index.html');
-  res.sendFile(fileName, function(err) {
+  res.sendFile(fileName, (err) => {
     if (err){
      console.log(err);
       res.status(err.status).end();
@@ -26,9 +26,9 @@ app.get('/', function(req,res){
 });
 
 //GET call for data parameters
-app.get('/:datestring', function(req,res){
+app.get('/:dateStr', (req,res) => {
   //gets unix code user input to be formatted
-  var dateValue = req.params.datestring;
+  var dateValue = req.params.dateStr;
   
   //Date formatting options
   var format = {
@@ -60,6 +60,6 @@ app.get('/:datestring', function(req,res){
 
 var port = process.env.PORT || 8080; //set port
 // listen for requests
-app.listen(port, function () {
+app.listen(port, () => {
   console.log('Your app is listening on port ' + port);
 });
