@@ -12,8 +12,17 @@ e.g. `{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}`.
 5. If the date string is **invalid** the api returns a JSON having the structure `{"unix": null, "utc" : "Invalid Date" }`. It is what you get from the date manipulation functions used above.
 
 #### Example usage:
-* https://curse-arrow.hyperdev.space/api/timestamp/2015-12-15
-* https://curse-arrow.hyperdev.space/api/timestamp/1450137600000
+<ul>
+          <li>
+            <code>GET <a href="https://timestamp-microservice-ajb.glitch.me/api/timestamp/2015-12-25">https://timestamp-microservice-ajb.glitch.me/api/timestamp/2015-12-25</a></code>
+          </li>
+          <li>
+            <code>GET <a href="https://timestamp-microservice-ajb.glitch.me/api/timestamp/1450137600">https://timestamp-microservice-ajb.glitch.me/api/timestamp/1450137600</a></code>
+          </li>
+        </ul>
 
 #### Example output:
-* { "unix": 1450137600, "natural": "December 15, 2015" }
+<p>          
+  <code>{"unix":1450137600, "utc":"Tue, 15 Dec 2015 00:00:00 GMT"}</code><br>
+  <code>{"unix": "invalid date", "utc": "error"}</code>
+</p>
