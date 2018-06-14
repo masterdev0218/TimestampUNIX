@@ -1,22 +1,28 @@
 {
-  "name": "timestamp-microservice-ajb",
-  "version": "1.0.0",
-  "description": "Convert a string to Unix timestamp and natural language date.",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js"
-  },
-  "dependencies": {
-    "express": "^4.16.3",
-    "cors": "^2.8.4",
-    "body-parser": "^1.18.3",
-    "cool-ascii-faces": "^1.3.4"
-  },
-  "engines": {
-    "node": "8.x"
-  },
-  "repository": {
-    "url": "https://github.com/AndrewJBateman/TimestampUNIX.git"
-  },
-  "license": "MIT"
+	"name": "timestamp-microservice-ajb",
+	"version": "1.0.0",
+	"description": "An FCC Backend Challenge",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "^4.12.4",
+		"cors": "^2.8.0",
+    "body-parser": "^1.18.3"
+	},
+	"engines": {
+		"node": "8.x"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AndrewJBateman/TimestampUNIX.git"
+	},
+	"keywords": [
+		"node",
+		"hyperdev",
+		"express",
+		"freecodecamp"
+	],
+	"license": "MIT"
 }

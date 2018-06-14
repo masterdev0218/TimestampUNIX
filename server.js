@@ -1,6 +1,4 @@
-
 // init project
-const cool = require('cool-ascii-faces'); //added for Heroku
 const express = require('express'); //a minimal and flexible node.js web application framework
 const bodyParser = require('body-parser'); //Parse incoming request bodies in a middleware before your handlers
 const cors = require('cors'); //Cross Origin Resource Sharing, allows use of REST API served from a different origin
@@ -11,12 +9,25 @@ const port = process.env.PORT || 8080; //set port
 //create instance of express. Instantiate bodyParser and cors
 var app = module.exports = express();
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({optionSuccessStatus: 200}));  // some legacy browsers choke on 204
 
 
-// listen for requests
-app.listen(port, () => {
-  console.log('Your app is listening on port ' + port);
+// http://expressjs.com/en/starter/static-files.html
+app.use(express.static('public'));
+
+// http://expressjs.com/en/starter/basic-routing.html
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+// API endpoint for no date entry... 
+app.get("/api/timestamp/", function (req, res) {
+  let dateNow = new Date()
+  let unixDateNow = dateNow
+  res.json({
+    unix: dateNow.getTime(), 
+    utc: dateNow.toUTCString()
+  });
 });
 
 //when a GET request is made to the homepage, respond with the index.html file, 
@@ -34,46 +45,40 @@ app.get('/', (req,res) => {
   });
 });
 
-//GET call for 'dateStr' data parameters
-app.get('/:dateStr', (req,res) => {
+//GET call for 'date_string' data parameters
+app.get("/api/timestamp/:date_string", (req,res) => {
   //gets unix code user input to be formatted
-  var dateValue = req.params.dateStr;
-  
-  //Date format defined as a variable - used as the option in the toLocaleDateString method
-  var dateOptions = {
-    year: 'numeric', //this is actually the default anyway
-    month: 'long',
-    day: 'numeric' //this is actually the default anyway
-  };
+  var dateValue = req.params.date_string;
   
   //check if data passed in is not a number then assume it is a date 
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
+    console.log(naturalDate)
     
-    //if data is invalid log 'null'
     if(naturalDate == "Invalid Date"){
-      naturalDate = null;
-      unixDate = null;
-    }
-    
-    // show date in British English format i.e. day, month, year, or in Unix format using the JS getTime method
-    else{
+      naturalDate = "error";
+      unixDate = "invalid date";
+    } else {
       var unixDate = new Date(dateValue).getTime()/1000;
-      naturalDate = naturalDate.toLocaleDateString('en-GB', dateOptions);    
+      naturalDate = naturalDate.toUTCString()
     }
-  }
+  } 
+  
   //if it is a number then it must be Unix format so derive natural date from that
   else{
     var unixDate = dateValue;
     var naturalDate = new Date(dateValue*1000);
-    naturalDate = naturalDate.toLocaleDateString('en-GB', dateOptions);
+    naturalDate = naturalDate.toUTCString()
   }
   
   //output the Unix and natural date in JSON. 
   res.json({
     unix: unixDate, 
-    natural: naturalDate
+    utc: naturalDate
   }); 
 });
 
-
+// listen for requests :)
+var listener = app.listen(port, function () {
+  console.log('Your app is listening on port ' +port);
+});
