@@ -20,17 +20,17 @@ app.get("/", function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// API endpoint for no date entry... 
+// API endpoint for no date entry...
 app.get("/api/timestamp/", function (req, res) {
   let dateNow = new Date()
   let unixDateNow = dateNow
   res.json({
-    unix: dateNow.getTime(), 
+    unix: dateNow.getTime(),
     utc: dateNow.toUTCString()
   });
 });
 
-//when a GET request is made to the homepage, respond with the index.html file, 
+//when a GET request is made to the homepage, respond with the index.html file,
 //If error, log an error, else log 'sent'
 app.get('/', (req,res) => {
   var fileName = path.join(__dirname, 'index.html');
@@ -40,7 +40,7 @@ app.get('/', (req,res) => {
       res.status(err.status).end();
     }
     else {
-     console.log('Sent:', fileName); 
+     console.log('Sent:', fileName);
     }
   });
 });
@@ -49,12 +49,12 @@ app.get('/', (req,res) => {
 app.get("/api/timestamp/:date_string", (req,res) => {
   //gets unix code user input to be formatted
   var dateValue = req.params.date_string;
-  
-  //check if data passed in is not a number then assume it is a date 
+
+  //check if data passed in is not a number then assume it is a date
   if(isNaN(dateValue)){
     var naturalDate = new Date(dateValue);
     console.log(naturalDate)
-    
+
     if(naturalDate == "Invalid Date"){
       naturalDate = "error";
       unixDate = "invalid date";
@@ -62,23 +62,22 @@ app.get("/api/timestamp/:date_string", (req,res) => {
       var unixDate = new Date(dateValue).getTime()/1000;
       naturalDate = naturalDate.toUTCString()
     }
-  } 
-  
+  }
+
   //if it is a number then it must be Unix format so derive natural date from that
   else{
     var unixDate = dateValue;
     var naturalDate = new Date(dateValue*1000);
     naturalDate = naturalDate.toUTCString()
   }
-  
-  //output the Unix and natural date in JSON. 
+
+  //output the Unix and natural date in JSON.
   res.json({
-    unix: unixDate, 
+    unix: unixDate,
     utc: naturalDate
-  }); 
+  });
 });
 
-// listen for requests :)
-var listener = app.listen(port, function () {
+const listener = app.listen(port, function () {
   console.log('Your app is listening on port ' +port);
 });

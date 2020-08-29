@@ -5,7 +5,7 @@ body {
 	font-size: 16px;
 	color: #222;
 	/*background-color: #FaFaFa;*/
-  background-color: #ffcce6; /*light pink*/
+	background-color: #ffcce6; /*light pink*/
 	text-align: center;
 	line-height: 1.4em;
 }
@@ -16,7 +16,7 @@ body {
 }
 
 h3 {
-  margin-top: 30px;
+	margin-top: 30px;
 }
 
 .footer {
@@ -24,17 +24,17 @@ h3 {
 }
 
 .user-stories {
-  position: relative;
-  text-align: justify;
-  max-width: 700px;
-  margin: 15px auto;
+	position: relative;
+	text-align: justify;
+	max-width: 700px;
+	margin: 15px auto;
 }
 code {
-  font-family: monospace;
-  padding: 2px;
-  color: black;
-  /*background-color: #fff;*/
-  background-color: #cce6ff; /*light blue*/
+	font-family: monospace;
+	padding: 2px;
+	color: black;
+	/*background-color: #fff;*/
+	background-color: #cce6ff; /*light blue*/
 }
 ol {
 	list-style-position: outside;
@@ -44,12 +44,12 @@ ul {
 }
 
 li {
-  margin-bottom: 0.5em;
+	margin-bottom: 0.5em;
 }
 .user-stories li {
-  margin-bottom: 1em;
+	margin-bottom: 1em;
 }
 
 a {
-	color: #2574A9;
+	color: #2574a9;
 }
