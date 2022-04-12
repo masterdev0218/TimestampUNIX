@@ -1,9 +1,13 @@
 # :zap: Timestamp Microservice for FCC
 
-* Returns unix and utc timestamps for date inputs or current date/time
+* Returns UNIX and UTC timestamps for date inputs or current date/time
 * This was part of the FreeCodeCamp exercises for Front End Certification
+* **Note:** to open web links in a new window use: _ctrl+click on link_
 
-**\* Note: to open web links in a new window use: _ctrl+click on link_**
+![GitHub repo size](https://img.shields.io/github/repo-size/AndrewJBateman/TimestampUNIX?style=plastic)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/AndrewJBateman/TimestampUNIX?style=plastic)
+![GitHub Repo stars](https://img.shields.io/github/stars/AndrewJBateman/TimestampUNIX?style=plastic)
+![GitHub last commit](https://img.shields.io/github/last-commit/AndrewJBateman/TimestampUNIX?style=plastic)
 
 ## :page_facing_up: Table of contents
 
@@ -38,17 +42,18 @@ e.g. `{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}`.
 
 ## :signal_strength: Technologies
 
-* [Node v12](https://nodejs.org/en/) javaScript runtime built on Chrome's V8 JavaScript engine
-* [Express v5](https://expressjs.com/) Fast, unopinionated, minimalist web framework for Node.js
+* [Node v16](https://nodejs.org/en/) javaScript runtime built on Chrome's V8 JavaScript engine
+* [Express v4](https://expressjs.com/) Fast, unopinionated, minimalist web framework for Node.js
 * [body-parser v1](https://www.npmjs.com/package/body-parser) to parse incoming request bodies in middleware before handlers
 * [Cors v2](https://www.npmjs.com/package/cors) node.js package for providing Connect/Express middleware that can be used to enable CORS with various options.
 
 ## :floppy_disk: Setup
 
-* Run `npm run start` or `node server.js` for a dev server.
+* `npm i` to install dependencies
+* `npm run start` for a dev server.
 * Navigate to `http://localhost:8080/` for home screen.
 * Navigate to `http://localhost:8080/api/timestamp/` for current time stamp
-* Navigate to `http://localhost:8080/api/timestamp/2020-08-29` date-string for example to see json object with unix and utc timestamps
+* Navigate to `http://localhost:8080/api/timestamp/2022-04-12` date-string for example to see json object with unix and utc timestamps
 * Navigate to `http://localhost:8080/api/timestamp/1598659200` unix timestamp for example to see json object with unix and utc timestamps
 * The app will not automatically reload if you change any of the source files.
 
@@ -85,4 +90,4 @@ app.get("/api/timestamp/", function (req, res) {
 
 ## :envelope: Contact
 
-* Repo created by [ABateman](https://www.andrewbateman.org) - you are welcome to [send me a message](https://andrewbateman.org/contact)
+* Repo created by [ABateman](https://github.com/AndrewJBateman), email: gomezbateman@yahoo.com
