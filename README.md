@@ -43,8 +43,7 @@ e.g. `{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}`.
 ## :signal_strength: Technologies
 
 * [Node v16](https://nodejs.org/en/) javaScript runtime built on Chrome's V8 JavaScript engine
-* [Express v4](https://expressjs.com/) Fast, unopinionated, minimalist web framework for Node.js
-* [body-parser v1](https://www.npmjs.com/package/body-parser) to parse incoming request bodies in middleware before handlers
+* [Express v4](https://expressjs.com/) Fast, unopinionated, minimalist web framework for Node.js. Includes body-parsing
 * [Cors v2](https://www.npmjs.com/package/cors) node.js package for providing Connect/Express middleware that can be used to enable CORS with various options.
 
 ## :floppy_disk: Setup
@@ -65,7 +64,6 @@ e.g. `{"unix": 1479663089000 ,"utc": "Sun, 20 Nov 2016 17:31:29 GMT"}`.
 // API endpoint for no date entry...
 app.get("/api/timestamp/", function (req, res) {
   let dateNow = new Date()
-  let unixDateNow = dateNow
   res.json({
     unix: dateNow.getTime(),
     utc: dateNow.toUTCString()
@@ -75,12 +73,12 @@ app.get("/api/timestamp/", function (req, res) {
 
 ## :cool: Features
 
-* unix and utc timestamps shown
+* UNIX and UTC timestamps shown
 
 ## :clipboard: Status & To-Do List
 
 * Status: Working
-* To-Do: Old code that uses `var` a lot - whole thing should be rewritten to declare variables at beginning and use `let` and `const`
+* To-Do: Nothing
 
 ## :clap: Inspiration
 
